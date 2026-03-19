@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-4">
+
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-5 text-center">
+
+                    <!-- ICON -->
+                    <i class="bi bi-shop display-1 text-success mb-3"></i>
+
+                    <!-- TITLE -->
+                    <h2 class="mb-3">GreenGrocer</h2>
+                    <p class="text-muted mb-4">Login to continue</p>
+
+                    <!-- LOGIN FORM -->
+                    <form method="POST">
+
+                        <div class="mb-3">
+                            <input type="text"
+                                   name="username"
+                                   class="form-control"
+                                   placeholder="Enter Username"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="password"
+                                   name="password"
+                                   class="form-control"
+                                   placeholder="Enter Password"
+                                   required>
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-success w-100 py-3">
+                            🔐 Login
+                        </button>
+
+                    </form>
+
+                    <!-- REGISTER LINK -->
+                    <div class="mt-4">
+                        <p class="mb-0">
+                            New user?
+                            <a href="{{ url_for('register') }}" class="text-success fw-bold">
+                                Register here
+                            </a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

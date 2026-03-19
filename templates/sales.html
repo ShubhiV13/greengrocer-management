@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4"><i class="bi bi-receipt"></i> Sales History</h2>
+
+<table class="table table-hover">
+    <thead class="table-success">
+        <tr>
+            <th>Date & Time</th>
+            <th>Total Amount</th>
+            <th>Items Sold</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for t in transactions %}
+        <tr>
+            <td>{{ t.date.strftime('%d %b %Y %I:%M %p') }}</td>
+            <td><strong>₹{{ t.total }}</strong></td>
+            <td>{{ t.items|length }} items</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% if not transactions %}
+<p class="text-muted">No sales yet. Make your first sale in POS!</p>
+{% endif %}
+{% endblock %}

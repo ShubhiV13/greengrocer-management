@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4"><i class="bi bi-speedometer2"></i> Dashboard</h2>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card text-white bg-success h-100">
+            <div class="card-body">
+                <h5>Total Products</h5>
+                <h2>{{ total_products }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5>Total Sales</h5>
+                <h2>₹{{ "%.2f"|format(total_sales) }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5>Today's Transactions</h5>
+                <h2>{{ recent|length }}</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h4 class="mt-5">Recent Sales</h4>
+{% if recent %}
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="table-success">
+            <tr>
+                <th>Date & Time</th>
+                <th>Total Amount</th>
+                <th>Payment</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for transaction in recent %}
+        <tr>
+            <td>
+                {% if transaction.date %}
+                    {{ transaction.date.strftime('%d %b %Y %I:%M %p') }}
+                {% else %}
+                    N/A
+                {% endif %}
+            </td>
+            <td><strong class="text-success">₹{{ "%.2f"|format(transaction.total) }}</strong></td>
+            <td>
+                <span class="badge bg-success">
+                    <i class="bi bi-cash"></i> Cash
+                </span>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="alert alert-info">
+    <i class="bi bi-info-circle"></i> No sales transactions yet. 
+    <a href="{{ url_for('pos') }}" class="alert-link">Start selling</a>
+</div>
+{% endif %}
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0"><i class="bi bi-lightning-charge"></i> Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <a href="{{ url_for('pos') }}" class="btn btn-success w-100 py-3">
+                            <i class="bi bi-cart3 fs-4 d-block"></i>
+                            Go to POS
+                        </a>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <a href="{{ url_for('sales') }}" class="btn btn-outline-primary w-100 py-3">
+                            <i class="bi bi-graph-up fs-4 d-block"></i>
+                            View All Sales
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0"><i class="bi bi-clock-history"></i> Store Status</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Current Time:</strong> 
+                            <span class="text-primary">{{ ist_time }}</span>
+                        </p>
+                        <p><strong>Products in Store:</strong> 
+                            <span class="badge bg-success">{{ total_products }}</span>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Total Revenue:</strong> 
+                            <span class="text-success fw-bold">₹{{ "%.2f"|format(total_sales) }}</span>
+                        </p>
+                        <p><strong>Recent Sales Count:</strong> 
+                            <span class="badge bg-info">{{ recent|length }}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

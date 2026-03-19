@@ -1,0 +1,75 @@
+:root {
+    --green: #198754;
+}
+
+body {
+    background: #f8f9fa;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white !important;
+}
+
+.sidebar {
+    background: white;
+    border-right: 1px solid #e9ecef;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.nav-link {
+    color: #495057;
+    font-weight: 500;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin: 4px 8px;
+}
+
+.nav-link:hover, .nav-link.active {
+    background: #198754;
+    color: white;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    border-radius: 12px;
+}
+
+.btn-success {
+    background: #198754;
+    border: none;
+}
+
+.table th {
+    background: #198754;
+    color: white;
+    font-weight: 600;
+}
+
+.pos-cart {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.product-card {
+    transition: all 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(25,135,84,0.2);
+}
+
+.hover-card {
+    transition: 0.3s;
+}
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}

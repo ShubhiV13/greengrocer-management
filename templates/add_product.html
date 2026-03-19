@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4"><i class="bi bi-box-seam"></i> Products Inventory</h2>
+
+<div class="d-flex justify-content-between mb-3">
+    <form method="GET" class="d-flex w-50">
+        <input type="text" name="search" class="form-control me-2" placeholder="Search product..." value="{{ search }}">
+        <button class="btn btn-success">Search</button>
+    </form>
+    <a href="{{ url_for('add_product') }}" class="btn btn-success"><i class="bi bi-plus-lg"></i> Add New Product</a>
+</div>
+
+<table class="table table-hover">
+    <thead class="table-success">
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in products %}
+        <tr>
+            <td>{{ p.name }}</td>
+            <td><span class="badge bg-secondary">{{ p.category }}</span></td>
+            <td>₹{{ p.price }}</td>
+            <td>{% if p.stock < 10 %}<span class="badge bg-danger">{{ p.stock }}</span>{% else %}{{ p.stock }}{% endif %}</td>
+            <td>
+                <a href="{{ url_for('edit_product', id=p.id) }}" class="btn btn-sm btn-primary">Edit</a>
+                <a href="{{ url_for('delete_product', id=p.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Delete this product?')">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
