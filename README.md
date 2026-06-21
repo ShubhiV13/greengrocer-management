@@ -79,7 +79,6 @@
 
 ### Future Enhancements
 
-- Barcode Scanner Integration
 - Inventory Alerts
 - Sales Reports & Analytics
 - Online Ordering System
