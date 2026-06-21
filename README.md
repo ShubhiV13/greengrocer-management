@@ -2,9 +2,11 @@
 
 
 ### Overview
+
 - Green Grocery Management System is a web-based application developed using Python, HTML, and CSS to help manage grocery store operations efficiently. The system provides features for product management, sales tracking, user management, and point-of-sale (POS) functionality through a simple and user-friendly interface.
 
 ### Features
+
 - User Registration and Login
 - Dashboard for store management
 - Add new grocery products
@@ -31,7 +33,7 @@
 3. Navigate to the project directory:
 - cd green-grocery-management
 4. Install dependencies:
-= pip install -r requirements.txt
+- pip install -r requirements.txt
 5. Run the application:
 - python app.py
 6. Open your browser and visit:
@@ -62,11 +64,17 @@
 ### ScreenShots
 
 <img width="404" height="642" alt="image" src="https://github.com/user-attachments/assets/fa04a9f5-aa71-4640-ba7f-7a997136c845" />
+
 <img width="403" height="629" alt="image" src="https://github.com/user-attachments/assets/11839c8c-c0db-4ab7-ac1b-86816e2a469d" />
+
 <img width="372" height="654" alt="image" src="https://github.com/user-attachments/assets/658a8914-c0f9-4a40-96d6-c43e3db81591" />
+
 <img width="371" height="639" alt="image" src="https://github.com/user-attachments/assets/7331a9a0-2962-4861-9a84-1cb6e0b352a9" />
+
 <img width="372" height="660" alt="image" src="https://github.com/user-attachments/assets/d766f248-bb4c-4bdd-917f-520f3a3c5a2c" />
+
 <img width="372" height="621" alt="image" src="https://github.com/user-attachments/assets/72f1f51d-0f26-4072-9d2a-ab46aae0e9ff" />
+
 <img width="377" height="647" alt="image" src="https://github.com/user-attachments/assets/20c1a73e-cd75-46a7-85f4-f6d9f9859e7c" />
 
 ### Future Enhancements
